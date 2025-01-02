@@ -25,18 +25,19 @@ export default function Page() {
       const data = await response.json();
 
       console.log(data);
-      setMovies(data.results.slice(0, 10));
+      setMovies(data.results?.slice(0, 10));
       setPageInfo({ currentPage: Number(page), totalPages: data.total_pages });
     };
     fetchMovies();
   }, [params, page]);
   return (
-    <div className="gap-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-      {movies.map((movie) => (
+    <div>
+    <div className="gap-5 m-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      {movies?.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
-
+        </div>
       <PaginationConstrols pageInfo={pageInfo} />
-    </div>
+      </div>
   );
 }

@@ -9,7 +9,7 @@ type Props = {
 
 const getVisiblePages = (currentPage: number) => {
   if (currentPage < 3) {
-    return [1, 2, 3, 4, 5];
+    return [1, 2, 3, ];
   }
   return [
     currentPage - 2,
@@ -35,9 +35,9 @@ export const PaginationConstrols = ({ pageInfo }: Props) => {
   const lastPage = pageInfo.totalPages > 500 ? 500 : pageInfo.totalPages;
   const visiblePages = getVisiblePages(pageInfo.currentPage);
   return (
-    <div className="flex gap-10 mx-10 cursor-pointer">
+    <div className="flex gap-5 mx-10 cursor-pointer mt-7 mb-5">
       {pageInfo.currentPage > 1 && (
-        <div onClick={() => onChange(pageInfo.currentPage - 1)}>Prev</div>
+        <div onClick={() => onChange(pageInfo.currentPage - 1)}>prev</div>
       )}
       {visiblePages.map((page) => (
         <div
@@ -49,7 +49,7 @@ export const PaginationConstrols = ({ pageInfo }: Props) => {
           {page}
         </div>
       ))}
-      <div onClick={() => onChange(lastPage)}> {lastPage}</div>
+      <div onClick={() => onChange(lastPage)}> ... {" "}{lastPage}</div>
       {pageInfo.currentPage < lastPage && (
         <div onClick={() => onChange(pageInfo.currentPage + 1)}>Next</div>
       )}

@@ -5,6 +5,7 @@ import { Film} from "lucide-react";
 import {Search} from "@/app/_components/Search"
 import { Moon } from "@/app/_components/Moon";
 import { MoonType} from "@/app/layout";      
+import { FilterGenre } from "./FilterGenre";
  
  
 export const Navigation = ({toggleTheme,theme}:{toggleTheme: ()=> void; theme: MoonType;}) => {
@@ -15,6 +16,7 @@ export const Navigation = ({toggleTheme,theme}:{toggleTheme: ()=> void; theme: M
                     <Film />
                     <span>Movie Z</span>
                 </h1>
+                <FilterGenre/>
                 <div className="flex gap-3 ">
                     <button className="border rounded-[10px] p-2"><Search theme={theme} /></button>
                     <button className="border rounded-[10px] p-2" onClick={toggleTheme}><Moon theme={theme} /></button>

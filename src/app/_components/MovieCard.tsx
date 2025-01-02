@@ -12,7 +12,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
     <Link href={`/movie/${movie.id}`}>
       <div className={`bg-bgColor rounded-lg`}>
         <img src={src} alt={movie.title} className="rounded-t-lg" />
-        <div className="p-2">
+        <div className="p-2 min-h-24">
           <div className="flex gap-1 items-center">
             <Star
               color={`${stColor}`}
@@ -24,7 +24,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
               {movie.vote_average.toFixed(1)}
             </span>
           </div>
-          <h2>{movie.title}</h2>
+          <h2 className="">{movie.title}</h2>
         </div>
       </div>
     </Link>

@@ -5,8 +5,16 @@ export type Movie = {
   vote_average: number;
   backdrop_path: string;
 };
+export type Genres = {
+  name:string
+}
 
 export type PageInfo = {
   currentPage: number;
   totalPages: number;
 };
+
+export type GenreType = {
+  id:number,
+  name:string
+}
