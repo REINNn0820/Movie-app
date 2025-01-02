@@ -4,15 +4,15 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "./_components/Footer";
 import { Navigation } from "./_components/Navigation";
-import { CarouselDemo } from "./_components/Carousel";
 import { useState } from "react";
+
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -40,9 +40,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased ${theme}`}
       >
         <Navigation theme={theme} toggleTheme={toggleTheme} />
-        <div className=" w-full">
-          <CarouselDemo />
-        </div>
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>

@@ -25,10 +25,6 @@ export const PaginationConstrols = ({ pageInfo }: Props) => {
   const router = useRouter();
   const page = searchParams.get("page") || 1;
 
-  let newArray = [];
-  for (let i = Number(page) + 1; i < Number(page) + 10; i++) {
-    newArray.push(i);
-  }
   const onChange = (newPage: number) => {
     const newSearchParams = new URLSearchParams(searchParams.toString());
     newSearchParams.set("page", newPage.toString());
