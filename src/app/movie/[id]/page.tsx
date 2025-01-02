@@ -1,3 +1,4 @@
+import Section from "@/app/_components/Section";
 import { options } from "@/app/constants/api";
 
 export default async function Page({
@@ -11,6 +12,7 @@ export default async function Page({
   return (
     <div>
       <h1>{data.title}</h1>
+      <Section title="moreLikeThis" endpoint={`movie/${params.id}/recommendations`}/>
     </div>
   )
 }

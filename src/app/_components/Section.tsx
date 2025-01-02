@@ -11,7 +11,7 @@ type Props = {
 
 export default async function Section({ title, endpoint }: Props) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${endpoint}?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/${endpoint}`,
     options
   );
   const resJson = await res.json();
