@@ -8,13 +8,8 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Star } from "lucide-react";
-export function CarouselDemo({
-  movie,
-  key,
-}: {
-  movie: Movie;
-  key: Movie["id"];
-}) {
+
+export function CarouselDemo() {
   const stColor = "#FDE047";
   return (
     <Carousel className="w-full">

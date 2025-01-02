@@ -11,7 +11,7 @@ type Props = {
 
 export default async function Section({ title, endpoint }: Props) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${endpoint}?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/${endpoint}`,
     options
   );
   console.log(`https://api.themoviedb.org/3/movie/55673`);
@@ -27,7 +27,7 @@ export default async function Section({ title, endpoint }: Props) {
           </button>
         </Link>
       </div>
-      <div className="gap-5 grid grid-cols-2">
+      <div className="gap-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
