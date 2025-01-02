@@ -14,6 +14,7 @@ export default async function Section({ title, endpoint }: Props) {
     `https://api.themoviedb.org/3/movie/${endpoint}?language=en-US&page=1`,
     options
   );
+  console.log(`https://api.themoviedb.org/3/movie/55673`);
   const resJson = await res.json();
   const movies: Movie[] = resJson.results.slice(0, 10);
   return (

@@ -1,8 +1,14 @@
 import { Star } from "lucide-react";
 import { Movie } from "../constants/types";
- 
-export default function MovieCard({ movie, key, }: { movie: Movie, key: Movie["id"] }) {  
-    const stColor = "#FDE047";
+
+export default function MovieCard({
+  movie,
+  key,
+}: {
+  movie: Movie;
+  key: Movie["id"];
+}) {
+  const stColor = "#FDE047";
   return (
     <div className={`bg-bgColor rounded-lg`} key={key}>
       <img
@@ -18,12 +24,12 @@ export default function MovieCard({ movie, key, }: { movie: Movie, key: Movie["i
             width="13.33px"
             height="12.68px"
           />
-          <span className="after:content-['/10'] after:text-muted-foreground ">{movie.vote_average.toFixed(1)}</span>
+          <span className="after:content-['/10'] after:text-muted-foreground ">
+            {movie.vote_average.toFixed(1)}
+          </span>
         </div>
         <h2>{movie.title}</h2>
       </div>
     </div>
   );
 }
- 
- 
