@@ -34,7 +34,8 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
     --bgColor: 240 5% 96%;
-    --stColor: 50 98% 64%;  
+    --stColor: 50 98% 64%;
+    --btColor: 240, 6%, 10%;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -63,6 +64,7 @@ body {
     --chart-5: 340 75% 55%;
     --bgColor: 240 4% 16%;
     --stColor: 0 0% 98%;
+    --btColor: 240, 6%, 10%;
   }
 }
 

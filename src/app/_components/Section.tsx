@@ -14,9 +14,8 @@ export default async function Section({ title, endpoint, moreLink }: Props) {
   const res = await fetch(`https://api.themoviedb.org/3/${endpoint}`, options);
   console.log(`https://api.themoviedb.org/3/movie/55673`);
   const resJson = await res.json();
-  console.log(resJson)
   const movies: Movie[] = resJson.results?.slice(0, 10);
-  console.log(movies)
+
   return (
     <div className="p-5 flex flex-col gap-5">
       <div className="flex justify-between items-center">

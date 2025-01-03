@@ -6,8 +6,9 @@ export type Movie = {
   backdrop_path: string;
 };
 export type Genres = {
-  name:string
-}
+  name: string;
+  id: number;
+};
 
 export type PageInfo = {
   currentPage: number;
@@ -15,6 +16,19 @@ export type PageInfo = {
 };
 
 export type GenreType = {
-  id:number,
-  name:string
-}
+  id: number;
+  name: string;
+};
+
+export type MovieDetail = {
+  id: number;
+  title: string;
+  poster_path: number;
+  vote_average: string;
+  genres: Genres[];
+  overview: string;
+  release_date: string;
+  adult: boolean;
+  backdrop_path: string;
+  runtime: number;
+};
