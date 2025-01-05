@@ -12,7 +12,7 @@ export const SearchInput = ({ value, handleChange }: SearchInputProps) => {
       <Input
         type="text"
         value={value}
-        placeholder="Search something..."
+        placeholder="Search movie..."
         onChange={handleChange}
         className="h-10 p-4"
       />

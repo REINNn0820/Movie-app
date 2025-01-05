@@ -5,6 +5,7 @@ export type Movie = {
   vote_average: number;
   backdrop_path: string;
   overview: string;
+  release_date:number;
 };
 export type Genres = {
   name: string;

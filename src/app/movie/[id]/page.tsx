@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Star } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Play } from 'lucide-react';
 
 export default function Page() {
   const params = useParams();
@@ -60,7 +61,11 @@ export default function Page() {
           src={`https://image.tmdb.org/t/p/original/${movieDetail?.backdrop_path}`}
           className="w-full h-[200px] md:h-[500px] object-cover mb-10 opacity-70 "
         />
-        <button className="absolute left-5 bottom-4">ahhaahha</button>
+        <div className="absolute left-4 bottom-4 flex items-center gap-3">
+          <div className="bg-black flex justify-center items-center rounded-[50px] w-10 h-10"><Play/></div>
+          <div>Play Trailer</div>
+          <div>2:35</div>
+        </div>
       </div>
       <div className="flex gap-8">
         <div className="w-1/3 ml-4">
