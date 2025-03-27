@@ -10,10 +10,10 @@ import { Pagination } from "@/components/ui/pagination";
 export default function SearchResults() {
   const searchParams = useSearchParams();
   const genres = searchParams.get("with_genres");
-   const [pageInfo, setPageInfo] = useState<PageInfo>({
-      totalPages: 0,
-      currentPage: 1,
-    });
+  const [pageInfo, setPageInfo] = useState<PageInfo>({
+    totalPages: 0,
+    currentPage: 1,
+  });
 
   const [movies, setMovies] = useState<Movie[]>();
   useEffect(() => {
@@ -29,12 +29,16 @@ export default function SearchResults() {
   }, [genres]);
   return (
     <>
-      <div className="gap-5 m-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {movies?.map((e) => (
-          <MovieCard movie={e} key={`movie-${e.id}`} />
-        ))}
+      <div>
+        <div className="text-[24px] font-semibold ml-6 mt-4">
+          More like this
+        </div>
+        <div className="gap-5 m-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {movies?.map((e) => (
+            <MovieCard movie={e} key={`movie-${e.id}`} />
+          ))}
+        </div>
       </div>
-    
     </>
   );
 }

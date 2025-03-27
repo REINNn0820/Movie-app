@@ -2,17 +2,19 @@
 
 import Section from "@/app/_components/Section";
 import { options } from "@/app/constants/api";
-import { Genres, MovieDetail } from "@/app/constants/types";
+import { Genres, Movie, MovieDetail } from "@/app/constants/types";
 import { Badge } from "@/components/ui/badge";
 import { Star } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Play } from 'lucide-react';
+import { Play } from "lucide-react";
+import MovieCard from "@/app/_components/MovieCard";
 
 export default function Page() {
   const params = useParams();
   const [movieDetail, setMovieDetail] = useState<MovieDetail>();
   const stColor = "#FDE047";
+  const [movies, setMovies] = useState<Movie[]>([]);
 
   const { id } = useParams();
   useEffect(() => {
@@ -29,6 +31,19 @@ export default function Page() {
     };
     fetchMovieDetail();
   }, [id]);
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${params.category}?language=en-US&page=1`,
+        options
+      );
+      const data = await response.json();
+
+      console.log(data);
+      setMovies(data.results?.slice(0, 10));
+    };
+    fetchMovies();
+  }, [params]);
 
   const movieTime = movieDetail?.runtime ?? 0;
   const hours = Math.floor(movieTime / 60);
@@ -62,7 +77,9 @@ export default function Page() {
           className="w-full h-[200px] md:h-[500px] object-cover mb-10 opacity-70 "
         />
         <div className="absolute left-4 bottom-4 flex items-center gap-3">
-          <div className="bg-black flex justify-center items-center rounded-[50px] w-10 h-10"><Play/></div>
+          <div className=" flex justify-center items-center rounded-[50px] w-10 h-10">
+            <Play />
+          </div>
           <div>Play Trailer</div>
           <div>2:35</div>
         </div>
@@ -75,9 +92,12 @@ export default function Page() {
           />
         </div>
         <div className="w-2/3 mr-6">
-          <div className="mb-4">
+          <div className="mb-4" key={movieDetail?.id}>
             {movieDetail?.genres.map((el) => (
-              <Badge className="ml-2 mb-2"> {el.name}</Badge>
+              <Badge className="ml-2 mb-2" key={el.id}>
+                {" "}
+                {el.name}
+              </Badge>
             ))}
           </div>
           <p className="text-[15px]">{movieDetail?.overview}</p>
@@ -106,6 +126,11 @@ export default function Page() {
           <p className="">Just kidding</p>
         </div>
         <div className="bg-[#E4E4E7] h-[1px] w-[80%] mr-auto ml-auto  "></div>
+      </div>
+      <div className="gap-5 m-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        {movies?.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </div>
   );
